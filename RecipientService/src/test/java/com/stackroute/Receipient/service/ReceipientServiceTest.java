@@ -78,7 +78,7 @@ public class ReceipientServiceTest {
         assertEquals(false,deletedReceipient);
     }
 
-    @Test
+    /*@Test
     public void updateReceipientTest() throws ReceipientAlreadyExistsException
     {
         when(receipientRepository.save((Receipient) any())).thenReturn(receipient);
@@ -89,5 +89,5 @@ public class ReceipientServiceTest {
             e.printStackTrace();
         }
         assertEquals(receipient,updateReceipient);
-    }
+    }*/
 }
