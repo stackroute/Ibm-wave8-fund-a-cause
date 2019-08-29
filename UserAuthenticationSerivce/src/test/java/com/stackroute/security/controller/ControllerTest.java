@@ -66,22 +66,22 @@ public class ControllerTest {
         MockitoAnnotations.initMocks(this);
         mockMvc = MockMvcBuilders.standaloneSetup(jwtAuthenticationController).build();
         user = new Users();
-        user.setUsername("ascv");
+        user.setEmail("ascv");
         user.setPassword("Jonny");
 
         list = new ArrayList();
         list.add(user);
 
         userDTO = new UserDTO();
-        userDTO.setUsername("ascv");
+        userDTO.setEmail("ascv");
         userDTO.setPassword("Jonny");
         userDTO.setRole("Donor");
     }
 
     @Test
     public void saveUser() throws Exception {
-        when(jwtUserDetailsService.loadUserByUsername(userDTO.getUsername())).thenReturn(new User(user.getUsername(), user.getPassword(), new ArrayList<>()));
-        when(jwtTokenUtil.generateToken(new User(user.getUsername(), user.getPassword(), new ArrayList<>()))).thenReturn("Hello");
+        when(jwtUserDetailsService.loadUserByUsername(userDTO.getEmail())).thenReturn(new User(user.getEmail(), user.getPassword(), new ArrayList<>()));
+        when(jwtTokenUtil.generateToken(new User(user.getEmail(), user.getPassword(), new ArrayList<>()))).thenReturn("Hello");
         mockMvc.perform(post("/authenticate")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(userDTO)))

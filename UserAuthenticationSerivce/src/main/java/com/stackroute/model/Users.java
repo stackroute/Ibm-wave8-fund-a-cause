@@ -10,12 +10,11 @@ import javax.persistence.*;
 @Table(name="user")
 public class Users {
 
+
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private long id;
     @Column
     @JsonProperty("email")
-    private String username;
+    private String email;
     @Column
     @JsonProperty("password")
     private String password;
@@ -23,24 +22,16 @@ public class Users {
     @JsonProperty("role")
     String role;
 
-//    String email;
-//
-//    String phoneNumber;
-
-    public long getId() {
-        return id;
+    public Users() {
     }
 
-    public void setId(long id) {
-        this.id = id;
+
+    public String getEmail() {
+        return email;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -59,28 +50,12 @@ public class Users {
         this.role = role;
     }
 
-//    public String getEmail() {
-//        return email;
-//    }
-//
-//    public void setEmail(String email) {
-//        this.email = email;
-//    }
-//
-//    public String getPhoneNumber() {
-//        return phoneNumber;
-//    }
-//
-//    public void setPhoneNumber(String phoneNumber) {
-//        this.phoneNumber = phoneNumber;
-//    }
 
 
     @Override
     public String toString() {
         return "Users{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
+                "email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", role='" + role + '\'' +
                 '}';

@@ -46,8 +46,8 @@ public class JwtAuthenticationController {
     public ResponseEntity<?> createAuthenticationToken(@RequestBody UserDTO user) throws Exception {
         System.out.println(user);
         System.out.println(user.getRole());
-        authenticate(user.getUsername(), user.getPassword());
-        final UserDetails userDetails = userDetailsService.loadUserByUsername(user.getUsername());
+        authenticate(user.getEmail(), user.getPassword());
+        final UserDetails userDetails = userDetailsService.loadUserByUsername(user.getEmail());
         System.out.println(userDetails);
         final String token = jwtTokenUtil.generateToken(userDetails);
         Map<Object,Object> model=new HashMap<>();

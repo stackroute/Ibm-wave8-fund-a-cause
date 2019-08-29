@@ -24,7 +24,7 @@ public class KafkaConsumer {
 //        User user = new ObjectMapper().readValue(message, Users.class);
         System.out.println("Consumed JSON Message: " + user);
         Users newUser = new Users();
-        newUser.setUsername(user.getUsername());
+        newUser.setEmail(user.getEmail());
         newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
         newUser.setRole(user.getRole());
         return userDao.save(newUser);

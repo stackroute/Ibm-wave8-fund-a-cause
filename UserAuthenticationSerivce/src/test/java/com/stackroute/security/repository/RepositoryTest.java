@@ -32,10 +32,10 @@ public class RepositoryTest {
     public void setUp() {
         user = new Users();
         user.setPassword("dwyg");
-        user.setUsername("John");
+        user.setEmail("John");
         userDTO = new UserDTO();
         userDTO.setPassword("dwyg");
-        userDTO.setUsername("John");
+        userDTO.setEmail("John");
     }
 
     @After
@@ -54,8 +54,8 @@ public class RepositoryTest {
 
     @Test
     public void findByUsername() {
-        when(userDao.findByUsername(user.getUsername())).thenReturn(user);
-        Assert.assertEquals(user, userDao.findByUsername(userDTO.getUsername()));
+        when(userDao.findByEmail(user.getEmail())).thenReturn(user);
+        Assert.assertEquals(user, userDao.findByEmail(userDTO.getEmail()));
     }
 }
 
