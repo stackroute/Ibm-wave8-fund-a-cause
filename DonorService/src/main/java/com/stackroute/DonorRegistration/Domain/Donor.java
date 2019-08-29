@@ -14,19 +14,29 @@ public class Donor {
     private String name;
     @Transient private String email;
     @Transient private String password;
-    private long phoneNumber;
     @Transient private String role;
+    private long phoneNumber;
+    @Transient private int operation;
 
     public Donor() {
     }
 
-    public Donor(String username, String name, String email, String password, long phoneNumber, String role) {
-        this.id = username;
+    public Donor(String id, String name, String email, String password, String role, long phoneNumber,int operation) {
+        this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
-        this.phoneNumber = phoneNumber;
         this.role = role;
+        this.phoneNumber = phoneNumber;
+        this.operation = operation;
+    }
+
+    public int getOperation() {
+        return operation;
+    }
+
+    public void setOperation(int operation) {
+        this.operation = operation;
     }
 
     public String getId() {
