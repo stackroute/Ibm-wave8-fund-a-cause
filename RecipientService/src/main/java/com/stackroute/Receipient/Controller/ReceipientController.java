@@ -20,11 +20,6 @@ import java.util.List;
 public class ReceipientController {
     private ReceipientService service;
 
-   @Autowired
-    private KafkaTemplate<String,Object> kafkaTemplate;
-
-    public static final String TOPIC="Registration";
-
     @Autowired
     public ReceipientController(ReceipientService service) {
         this.service = service;
@@ -50,7 +45,6 @@ public class ReceipientController {
             responseEntity=new ResponseEntity<String>(ex.getMessage(),HttpStatus.CONFLICT);
             ex.printStackTrace();
         }
-        kafkaTemplate.send(TOPIC,owner);
 
         return responseEntity;
     }
