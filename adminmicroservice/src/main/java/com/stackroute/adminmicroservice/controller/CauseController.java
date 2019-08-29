@@ -6,18 +6,18 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.function.Consumer;
 
 @RestController
 @RequestMapping("/api/v1/cause")
 public class CauseController{
 
-    private static final String TOPIC = "admin";
+    private static final String TOPIC = "DeleteCause";
+    private static final String TOPIC2 = "UpdateCause";
+
 
 
     @Autowired
@@ -25,32 +25,28 @@ public class CauseController{
 
     private final Logger logger = LoggerFactory.getLogger(Consumer.class);
 
-    @GetMapping
-    @KafkaListener(topics = "Registration", groupId = "group_id")
-    public Object getAllCauses(Object message) {
-
-        logger.info(String.format("$$ -> Consumed Message -> %s", message));
-
-        return message;
-
-    }
-
-    @GetMapping("/causes/{name}")
-    @KafkaListener(topics = "Registration", groupId = "group_id")
-    public List<Object> getByName(List<Object> causes )  {
-        logger.info(String.format("$$ -> Consumed Message -> %s", causes));
-
-        return causes;
-    }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteCause(@PathVariable String id){
 
+
+        //send the id to the cause microservice using kafka to delete cause
         kafkaTemplate.send(TOPIC,id);
         ResponseEntity responseEntity = new ResponseEntity("Deleted Successfully ", HttpStatus.OK);
 
         return  responseEntity;
     }
 
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateCauseDetails(@RequestBody  Object cause) {
+
+        //send the updated cause to the cause microservice using kafka to update cause
+
+        kafkaTemplate.send(TOPIC2,cause);
+        ResponseEntity responseEntity;
+        responseEntity= new ResponseEntity<String>("Cause details updated!", HttpStatus.CREATED);
+
+        return responseEntity;
+    }
 
 }

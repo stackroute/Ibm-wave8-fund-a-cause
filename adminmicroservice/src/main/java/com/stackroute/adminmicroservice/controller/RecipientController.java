@@ -5,13 +5,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Objects;
 import java.util.function.Consumer;
 
 @RestController
@@ -26,25 +22,11 @@ public class RecipientController{
 
     private final Logger logger = LoggerFactory.getLogger(Consumer.class);
 
-    @GetMapping
-    @KafkaListener(topics = "Registration", groupId = "group_id")
-    public List<Object> getAllRecipients(List<Object> message) {
-
-        logger.info(String.format("$$ -> Consumed Message -> %s", message));
-
-        return message;
-
-    }
-    @GetMapping("/recipients/{name}")
-    @KafkaListener(topics = "Registration", groupId = "group_id")
-    public List<Object> getByName(List<Object> recipients )  {
-        logger.info(String.format("$$ -> Consumed Message -> %s", recipients));
-
-        return recipients;
-    }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteRecipient(@PathVariable String id){
+
+        //send the id to the recipient microservice using kafka to delete recipient
 
         kafkaTemplate.send(TOPIC,id);
         ResponseEntity responseEntity = new ResponseEntity("Deleted Successfully ", HttpStatus.OK);
@@ -53,9 +35,11 @@ public class RecipientController{
     }
 
 
-    /*Updation of donor details*/
+    /*Updation of recipient details*/
     @PutMapping("/update/{id}")
-    public ResponseEntity<?> updateDonorDetails(@RequestBody Object recipient) {
+    public ResponseEntity<?> updateRecipientDetails(@RequestBody Object recipient) {
+
+        //send the updated recipient to the recipient microservice using kafka to update recipient
 
         kafkaTemplate.send(TOPIC2,recipient);
 
