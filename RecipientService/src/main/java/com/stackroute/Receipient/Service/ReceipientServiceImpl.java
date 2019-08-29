@@ -5,6 +5,7 @@ import com.stackroute.Receipient.Exception.ReceipientAlreadyExistsException;
 import com.stackroute.Receipient.Exception.ReceipientNotFoundException;
 import com.stackroute.Receipient.Repository.ReceipientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,6 +14,11 @@ import java.util.Optional;
 @Service
 public class ReceipientServiceImpl implements ReceipientService {
     private ReceipientRepository repository;
+    @Autowired
+    private KafkaTemplate<String,Receipient> kafkaTemplate;
+
+    public static final String TOPIC="registration";
+
 
     @Autowired
     public ReceipientServiceImpl(ReceipientRepository repository) {
@@ -25,8 +31,11 @@ public class ReceipientServiceImpl implements ReceipientService {
         if (repository.existsById(owner.getId())) {
             throw new ReceipientAlreadyExistsException("Owner already exists!");
         }
+        kafkaTemplate.send(TOPIC,owner);
         Receipient savedOwner = repository.save(owner);
+
         return savedOwner;
+
 
     }
 
@@ -40,10 +49,10 @@ public class ReceipientServiceImpl implements ReceipientService {
     }
 
     @Override
-    public Receipient deleteOwner(String id) throws ReceipientNotFoundException {
-        if(repository.existsById(id))
+    public Receipient deleteOwner(String username) throws ReceipientNotFoundException {
+        if(repository.existsById(username))
         {
-            repository.deleteById(id);
+            repository.deleteById(username);
         }
         else
         {
