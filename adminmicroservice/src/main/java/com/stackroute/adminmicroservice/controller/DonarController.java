@@ -24,9 +24,9 @@ public class DonarController {
     private final Logger logger = LoggerFactory.getLogger(Consumer.class);
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteDonar(@PathVariable String id){
+    public ResponseEntity<?> deleteDonor(@PathVariable String id){
 
-        //send the id to the donor microservice using kafka to delete donor
+        //send the id to the donor microService using kafka to delete donor
 
         kafkaTemplate.send(TOPIC,id);
         ResponseEntity responseEntity = new ResponseEntity("Deleted Successfully ", HttpStatus.OK);
@@ -37,7 +37,7 @@ public class DonarController {
    @PutMapping("/update/{id}")
     public ResponseEntity<?> updateDonorDetails(@RequestBody Object donor) {
 
-       //send the updated donor to the donor microservice using kafka to update donor
+       //send the updated donor to the donor microService using kafka to update donor
 
        kafkaTemplate.send(TOPIC2,donor);
         ResponseEntity responseEntity;
