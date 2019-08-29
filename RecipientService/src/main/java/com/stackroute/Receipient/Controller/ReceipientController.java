@@ -20,11 +20,6 @@ import java.util.List;
 public class ReceipientController {
     private ReceipientService service;
 
-   @Autowired
-    private KafkaTemplate<String,Object> kafkaTemplate;
-
-    public static final String TOPIC="Registration";
-
     @Autowired
     public ReceipientController(ReceipientService service) {
         this.service = service;
@@ -50,7 +45,6 @@ public class ReceipientController {
             responseEntity=new ResponseEntity<String>(ex.getMessage(),HttpStatus.CONFLICT);
             ex.printStackTrace();
         }
-        kafkaTemplate.send(TOPIC,owner);
 
         return responseEntity;
     }
@@ -98,11 +92,11 @@ public class ReceipientController {
     }
 
     /*Get owner details using name attribute*/
-    @GetMapping("owner/{name}")
-    public ResponseEntity<?> getOwnerByName(@PathVariable String name) {
+    @GetMapping("owner/{id}")
+    public ResponseEntity<?> getOwnerByName(@PathVariable String id) {
         ResponseEntity responseEntity;
         try {
-            List<Receipient> receipient =service.getProductOwnerByName(name);
+            List<Receipient> receipient =service.getProductOwnerByName(id);
             responseEntity = new ResponseEntity<List<Receipient>>(receipient, HttpStatus.OK);
         } catch (Exception ex) {
             responseEntity = new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);

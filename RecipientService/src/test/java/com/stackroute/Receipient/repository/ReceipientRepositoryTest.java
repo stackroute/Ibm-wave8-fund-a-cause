@@ -43,6 +43,7 @@ public class ReceipientRepositoryTest {
         Receipient fetchReceipient = receipientRepository.findById(receipient.getId()).get();
         Assert.assertEquals("nandu", fetchReceipient.getId());
 
+
     }
     @Test
     public void testSaveReceipientFailure() {

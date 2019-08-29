@@ -20,11 +20,24 @@ public class Users {
     private String password;
     @Column
     @JsonProperty("role")
-    String role;
+    private String role;
+
+
+    @Column
+    @JsonProperty
+    @Transient private int operation;
+
 
     public Users() {
     }
 
+    public int getOperation() {
+        return operation;
+    }
+
+    public void setOperation(int operation) {
+        this.operation = operation;
+    }
 
     public String getEmail() {
         return email;
