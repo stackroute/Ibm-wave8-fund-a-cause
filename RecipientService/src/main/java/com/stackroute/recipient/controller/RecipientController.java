@@ -1,7 +1,7 @@
-package com.stackroute.Receipient.controller;
+package com.stackroute.recipient.controller;
 
-import com.stackroute.Receipient.domain.Receipient;
-import com.stackroute.Receipient.service.ReceipientService;
+import com.stackroute.recipient.domain.Recipient;
+import com.stackroute.recipient.service.RecipientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,26 +13,20 @@ import java.util.List;
 @CrossOrigin("*")
 @RestController
 @RequestMapping(value="api/v1")
-public class ReceipientController {
-    private ReceipientService service;
+public class RecipientController {
+    private RecipientService service;
 
     @Autowired
-    public ReceipientController(ReceipientService service) {
+    public RecipientController(RecipientService service) {
         this.service = service;
     }
 
-    /*Registration of new Owner*/
+    /*Registration of new Receipient*/
 
     @PostMapping("owner")
-    public ResponseEntity<?> saveNewOwner(@RequestBody Receipient owner){
+    public ResponseEntity<?> saveNewOwner(@RequestBody Recipient owner){
         ResponseEntity responseEntity;
-       /* try {
-            byte[] ba = new ObjectMapper().writeValueAsString(owner).getBytes();
-            kafkaTemplate.send(new ProducerRecord<byte[],byte[]>(TOPIC, ba));
-            responseEntity = new ResponseEntity("Owner Successfully Registered", HttpStatus.CREATED);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }*/
+
        try{
             service.saveNewProductOwner(owner);
             responseEntity=new ResponseEntity<String>("Owner is registered", HttpStatus.CREATED);
@@ -46,13 +40,13 @@ public class ReceipientController {
     }
 
 
-    /*Get all the Registered Owners*/
+    /*Get all the Registered Recipients*/
     @GetMapping("owners")
     public ResponseEntity<?> getAllOwners() {
         ResponseEntity responseEntity=null;
         try {
 
-            responseEntity = new ResponseEntity<List<Receipient>>(service.getAllOwners(), HttpStatus.OK);
+            responseEntity = new ResponseEntity<List<Recipient>>(service.getAllOwners(), HttpStatus.OK);
         } catch (Exception ex) {
             responseEntity = new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
             ex.printStackTrace();
@@ -76,7 +70,7 @@ public class ReceipientController {
 
     /*Update the Registered Owners using id*/
     @PutMapping("owner/{id}")
-    public ResponseEntity<?> UpdateOwner(@RequestBody Receipient owner ){
+    public ResponseEntity<?> UpdateOwner(@RequestBody Recipient owner ){
         ResponseEntity responseEntity;
         try {
             service.updateOwnerdetails(owner);
@@ -92,8 +86,8 @@ public class ReceipientController {
     public ResponseEntity<?> getOwnerByName(@PathVariable String id) {
         ResponseEntity responseEntity;
         try {
-            List<Receipient> receipient =service.getProductOwnerByName(id);
-            responseEntity = new ResponseEntity<List<Receipient>>(receipient, HttpStatus.OK);
+            List<Recipient> recipient =service.getProductOwnerByName(id);
+            responseEntity = new ResponseEntity<List<Recipient>>(recipient, HttpStatus.OK);
         } catch (Exception ex) {
             responseEntity = new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
             ex.printStackTrace();

@@ -1,13 +1,13 @@
-package com.stackroute.Receipient;
+package com.stackroute.recipient;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ReceipientApplication {
+public class RecipientApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ReceipientApplication.class, args);
+		SpringApplication.run(RecipientApplication.class, args);
 	}
 
 }

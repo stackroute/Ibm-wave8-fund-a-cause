@@ -1,9 +1,9 @@
-package com.stackroute.Receipient.controller;
+package com.stackroute.recipient.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.stackroute.Receipient.domain.Receipient;
-import com.stackroute.Receipient.exception.ReceipientAlreadyExistsException;
-import com.stackroute.Receipient.service.ReceipientService;
+import com.stackroute.recipient.domain.Recipient;
+import com.stackroute.recipient.exception.RecipientAlreadyExistsException;
+import com.stackroute.recipient.service.RecipientService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,38 +29,38 @@ import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest
-public class ReceipientControllerTest {
+public class RecipientControllerTest {
     @Autowired
     private MockMvc mockMvc;
-    private Receipient receipient;
+    private Recipient recipient;
     @MockBean
     private KafkaTemplate<String,Object> kafkaTemplate;
     @MockBean
-    private ReceipientService receipientService;
+    private RecipientService recipientService;
     @InjectMocks
-    private ReceipientController receipientController;
-    private List<Receipient> list =null;
+    private RecipientController recipientController;
+    private List<Recipient> list =null;
 
     @Before
     public void setUp(){
 
         MockitoAnnotations.initMocks(this);
-        mockMvc = MockMvcBuilders.standaloneSetup(receipientController).build();
-        receipient = new Receipient();
-        receipient.setId("nandu");
-        receipient.setName("nandini");
-        receipient.setEmail("n@gmail.com");
-        receipient.setPassword("nnnnn");
-        receipient.setPhoneNumber(123456);
-        receipient.setRole("Receipient");
+        mockMvc = MockMvcBuilders.standaloneSetup(recipientController).build();
+        recipient = new Recipient();
+        recipient.setId("nandu");
+        recipient.setName("nandini");
+        recipient.setEmail("n@gmail.com");
+        recipient.setPassword("nnnnn");
+        recipient.setPhoneNumber(123456);
+        recipient.setRole("Receipient");
         list = new ArrayList();
-        list.add(receipient);
+        list.add(recipient);
     }
     @Test
     public void saveReceipient() throws Exception {
-        when(receipientService.saveNewProductOwner(any())).thenReturn(receipient);
+        when(recipientService.saveNewProductOwner(any())).thenReturn(recipient);
         mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/owner")
-                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(receipient)))
+                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(recipient)))
                 .andExpect(MockMvcResultMatchers.status().isCreated())
                 .andDo(MockMvcResultHandlers.print());
 
@@ -68,18 +68,18 @@ public class ReceipientControllerTest {
     }
     @Test
     public void saveReceipientFailure() throws Exception {
-        when(receipientService.saveNewProductOwner(any())).thenThrow(ReceipientAlreadyExistsException.class);
+        when(recipientService.saveNewProductOwner(any())).thenThrow(RecipientAlreadyExistsException.class);
         mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/owner")
-                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(receipient)))
+                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(recipient)))
                 .andExpect(MockMvcResultMatchers.status().isConflict())
                 .andDo(MockMvcResultHandlers.print());
     }
 
     @Test
     public void testgetAllReceipients() throws Exception {
-        when(receipientService.getAllOwners()).thenReturn(list);
+        when(recipientService.getAllOwners()).thenReturn(list);
         mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/owners")
-                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(receipient)))
+                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(recipient)))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(MockMvcResultHandlers.print());
 
@@ -88,9 +88,9 @@ public class ReceipientControllerTest {
     public void deleteReceipient() throws Exception
     {
 
-        when(receipientService.deleteOwner(anyString())).thenReturn(receipient);
+        when(recipientService.deleteOwner(anyString())).thenReturn(recipient);
         mockMvc.perform(MockMvcRequestBuilders.delete("/api/v1/owner/nandu")
-                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(receipient)))
+                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(recipient)))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andDo(MockMvcResultHandlers.print());
     }
@@ -98,9 +98,9 @@ public class ReceipientControllerTest {
     public void updateReceipient() throws Exception
     {
 
-        when(receipientService.updateOwnerdetails(any())).thenReturn(receipient);
+        when(recipientService.updateOwnerdetails(any())).thenReturn(recipient);
         mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/owner/nandini")
-                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(receipient)))
+                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(recipient)))
                 .andExpect(MockMvcResultMatchers.status().isCreated())
                 .andDo(MockMvcResultHandlers.print());
     }
