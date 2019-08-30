@@ -1,8 +1,6 @@
 package com.stackroute.DonorRegistration.config;
 import com.stackroute.DonorRegistration.Domain.Donor;
-import jdk.jfr.Enabled;
 import org.apache.kafka.clients.producer.ProducerConfig;
-import org.apache.kafka.common.serialization.ByteArraySerializer;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
