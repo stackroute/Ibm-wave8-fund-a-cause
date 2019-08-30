@@ -1,10 +1,10 @@
 package com.stackroute.DonorRegistration.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.stackroute.DonorRegistration.Controller.DonorController;
-import com.stackroute.DonorRegistration.Domain.Donor;
-import com.stackroute.DonorRegistration.Exceptions.DonorAlreadyExistsException;
-import com.stackroute.DonorRegistration.Service.DonorService;
+import com.stackroute.donorregistration.controller.DonorController;
+import com.stackroute.donorregistration.domain.Donor;
+import com.stackroute.donorregistration.exceptions.DonorAlreadyExistsException;
+import com.stackroute.donorregistration.service.DonorService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

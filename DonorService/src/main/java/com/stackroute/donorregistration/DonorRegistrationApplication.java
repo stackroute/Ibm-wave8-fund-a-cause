@@ -1,4 +1,4 @@
-package com.stackroute.DonorRegistration;
+package com.stackroute.donorregistration;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

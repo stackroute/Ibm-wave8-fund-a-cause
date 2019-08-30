@@ -1,5 +1,5 @@
-package com.stackroute.DonorRegistration.config;
-import com.stackroute.DonorRegistration.Domain.Donor;
+package com.stackroute.donorregistration.config;
+import com.stackroute.donorregistration.domain.Donor;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;
@@ -18,7 +18,7 @@ public class KafkaConfiguration {
     @Bean
     public ProducerFactory<String, Donor> producerFactory() {
         Map<String, Object> config = new HashMap<>();
-        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.238.244:9092");
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
         return new DefaultKafkaProducerFactory<>(config);

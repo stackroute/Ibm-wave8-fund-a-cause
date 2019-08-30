@@ -1,6 +1,6 @@
-package com.stackroute.DonorRegistration.Repository;
+package com.stackroute.donorregistration.repository;
 
-import com.stackroute.DonorRegistration.Domain.Donor;
+import com.stackroute.donorregistration.domain.Donor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;

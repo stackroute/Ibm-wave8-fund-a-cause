@@ -1,7 +1,7 @@
 package com.stackroute.DonorRegistration.repository;
 
-import com.stackroute.DonorRegistration.Domain.Donor;
-import com.stackroute.DonorRegistration.Repository.DonorRepository;
+import com.stackroute.donorregistration.domain.Donor;
+import com.stackroute.donorregistration.repository.DonorRepository;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

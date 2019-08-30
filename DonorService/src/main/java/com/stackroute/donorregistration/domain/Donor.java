@@ -1,4 +1,4 @@
-package com.stackroute.DonorRegistration.Domain;
+package com.stackroute.donorregistration.domain;
 
 
 import org.springframework.stereotype.Component;

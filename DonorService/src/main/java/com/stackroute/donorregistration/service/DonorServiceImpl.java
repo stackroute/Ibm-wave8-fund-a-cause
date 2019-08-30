@@ -1,10 +1,10 @@
-package com.stackroute.DonorRegistration.Service;
+package com.stackroute.donorregistration.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.stackroute.DonorRegistration.Domain.Donor;
-import com.stackroute.DonorRegistration.Exceptions.DonorAlreadyExistsException;
-import com.stackroute.DonorRegistration.Exceptions.DonorNotFoundException;
-import com.stackroute.DonorRegistration.Repository.DonorRepository;
+import com.stackroute.donorregistration.domain.Donor;
+import com.stackroute.donorregistration.exceptions.DonorAlreadyExistsException;
+import com.stackroute.donorregistration.exceptions.DonorNotFoundException;
+import com.stackroute.donorregistration.repository.DonorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;

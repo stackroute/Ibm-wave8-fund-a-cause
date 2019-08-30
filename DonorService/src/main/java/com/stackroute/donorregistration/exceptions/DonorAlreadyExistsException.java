@@ -1,4 +1,4 @@
-package com.stackroute.DonorRegistration.Exceptions;
+package com.stackroute.donorregistration.exceptions;
 
 /*Exception thrown when Donor already Exists*/
 public class DonorAlreadyExistsException  extends Exception{
