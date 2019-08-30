@@ -1,10 +1,9 @@
 package com.stackroute.Receipient.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.stackroute.Receipient.Controller.ReceipientController;
-import com.stackroute.Receipient.Domain.Receipient;
-import com.stackroute.Receipient.Exception.ReceipientAlreadyExistsException;
-import com.stackroute.Receipient.Service.ReceipientService;
+import com.stackroute.Receipient.domain.Receipient;
+import com.stackroute.Receipient.exception.ReceipientAlreadyExistsException;
+import com.stackroute.Receipient.service.ReceipientService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

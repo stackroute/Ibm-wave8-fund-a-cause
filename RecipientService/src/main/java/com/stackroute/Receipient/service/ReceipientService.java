@@ -1,8 +1,8 @@
-package com.stackroute.Receipient.Service;
+package com.stackroute.Receipient.service;
 
-import com.stackroute.Receipient.Domain.Receipient;
-import com.stackroute.Receipient.Exception.ReceipientAlreadyExistsException;
-import com.stackroute.Receipient.Exception.ReceipientNotFoundException;
+import com.stackroute.Receipient.domain.Receipient;
+import com.stackroute.Receipient.exception.ReceipientAlreadyExistsException;
+import com.stackroute.Receipient.exception.ReceipientNotFoundException;
 
 import java.util.List;
 

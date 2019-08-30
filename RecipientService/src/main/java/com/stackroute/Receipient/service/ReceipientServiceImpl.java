@@ -1,9 +1,9 @@
-package com.stackroute.Receipient.Service;
+package com.stackroute.Receipient.service;
 
-import com.stackroute.Receipient.Domain.Receipient;
-import com.stackroute.Receipient.Exception.ReceipientAlreadyExistsException;
-import com.stackroute.Receipient.Exception.ReceipientNotFoundException;
-import com.stackroute.Receipient.Repository.ReceipientRepository;
+import com.stackroute.Receipient.domain.Receipient;
+import com.stackroute.Receipient.exception.ReceipientAlreadyExistsException;
+import com.stackroute.Receipient.exception.ReceipientNotFoundException;
+import com.stackroute.Receipient.repository.ReceipientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;

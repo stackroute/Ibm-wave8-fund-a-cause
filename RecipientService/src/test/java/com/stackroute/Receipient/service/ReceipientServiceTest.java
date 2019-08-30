@@ -1,11 +1,9 @@
 package com.stackroute.Receipient.service;
 
-import com.stackroute.Receipient.Domain.Receipient;
-import com.stackroute.Receipient.Exception.ReceipientAlreadyExistsException;
-import com.stackroute.Receipient.Exception.ReceipientNotFoundException;
-import com.stackroute.Receipient.Repository.ReceipientRepository;
-import com.stackroute.Receipient.Service.ReceipientServiceImpl;
-import org.junit.Assert;
+import com.stackroute.Receipient.domain.Receipient;
+import com.stackroute.Receipient.exception.ReceipientAlreadyExistsException;
+import com.stackroute.Receipient.exception.ReceipientNotFoundException;
+import com.stackroute.Receipient.repository.ReceipientRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;

@@ -1,4 +1,4 @@
-package com.stackroute.Receipient.Exception;
+package com.stackroute.Receipient.exception;
 
 public class ReceipientAlreadyExistsException extends Exception {
 

@@ -1,7 +1,6 @@
 package com.stackroute.Receipient.repository;
 
-import com.stackroute.Receipient.Domain.Receipient;
-import com.stackroute.Receipient.Repository.ReceipientRepository;
+import com.stackroute.Receipient.domain.Receipient;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -9,7 +8,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;

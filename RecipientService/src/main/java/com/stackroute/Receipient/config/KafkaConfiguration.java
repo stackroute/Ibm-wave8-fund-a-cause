@@ -1,9 +1,8 @@
 package com.stackroute.Receipient.config;
 
 
-import com.stackroute.Receipient.Domain.Receipient;
+import com.stackroute.Receipient.domain.Receipient;
 import org.apache.kafka.clients.producer.ProducerConfig;
-import org.apache.kafka.common.serialization.ByteArraySerializer;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

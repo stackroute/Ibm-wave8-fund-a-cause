@@ -1,6 +1,6 @@
-package com.stackroute.Receipient.Repository;
+package com.stackroute.Receipient.repository;
 
-import com.stackroute.Receipient.Domain.Receipient;
+import com.stackroute.Receipient.domain.Receipient;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
