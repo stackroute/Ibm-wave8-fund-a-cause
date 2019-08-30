@@ -2,10 +2,10 @@ package com.stackroute.Cause.controller;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.stackroute.Cause.Controller.CauseController;
-import com.stackroute.Cause.Domain.Cause;
-import com.stackroute.Cause.Exception.CauseAlreadyExistsException;
-import com.stackroute.Cause.Service.CauseService;
+import com.stackroute.cause.controller.CauseController;
+import com.stackroute.cause.domain.Cause;
+import com.stackroute.cause.exception.CauseAlreadyExistsException;
+import com.stackroute.cause.service.CauseService;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.kafka.core.KafkaTemplate;

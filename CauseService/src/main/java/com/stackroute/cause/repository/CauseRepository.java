@@ -1,6 +1,6 @@
-package com.stackroute.Cause.Repository;
+package com.stackroute.cause.repository;
 
-import com.stackroute.Cause.Domain.Cause;
+import com.stackroute.cause.domain.Cause;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;

@@ -1,8 +1,8 @@
 package com.stackroute.Cause.repository;
 
 
-import com.stackroute.Cause.Domain.Cause;
-import com.stackroute.Cause.Repository.CauseRepository;
+import com.stackroute.cause.domain.Cause;
+import com.stackroute.cause.repository.CauseRepository;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

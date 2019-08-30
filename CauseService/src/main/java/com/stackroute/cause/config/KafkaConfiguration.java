@@ -1,4 +1,4 @@
-package com.stackroute.Cause.config;
+package com.stackroute.cause.config;
 
 
 import org.apache.kafka.clients.producer.ProducerConfig;

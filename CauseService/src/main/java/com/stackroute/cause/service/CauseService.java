@@ -1,8 +1,8 @@
-package com.stackroute.Cause.Service;
+package com.stackroute.cause.service;
 
-import com.stackroute.Cause.Domain.Cause;
-import com.stackroute.Cause.Exception.CauseAlreadyExistsException;
-import com.stackroute.Cause.Exception.CauseNotFoundException;
+import com.stackroute.cause.domain.Cause;
+import com.stackroute.cause.exception.CauseAlreadyExistsException;
+import com.stackroute.cause.exception.CauseNotFoundException;
 
 import java.util.List;
 

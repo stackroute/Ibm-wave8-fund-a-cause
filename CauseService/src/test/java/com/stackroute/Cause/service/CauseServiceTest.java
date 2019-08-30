@@ -1,10 +1,10 @@
 package com.stackroute.Cause.service;
 
-import com.stackroute.Cause.Domain.Cause;
-import com.stackroute.Cause.Exception.CauseAlreadyExistsException;
-import com.stackroute.Cause.Exception.CauseNotFoundException;
-import com.stackroute.Cause.Repository.CauseRepository;
-import com.stackroute.Cause.Service.CauseServiceImpl;
+import com.stackroute.cause.domain.Cause;
+import com.stackroute.cause.exception.CauseAlreadyExistsException;
+import com.stackroute.cause.exception.CauseNotFoundException;
+import com.stackroute.cause.repository.CauseRepository;
+import com.stackroute.cause.service.CauseServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;

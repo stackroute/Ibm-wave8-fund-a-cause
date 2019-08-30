@@ -1,10 +1,10 @@
-package com.stackroute.Cause.Service;
+package com.stackroute.cause.service;
 
 
-import com.stackroute.Cause.Domain.Cause;
-import com.stackroute.Cause.Exception.CauseAlreadyExistsException;
-import com.stackroute.Cause.Exception.CauseNotFoundException;
-import com.stackroute.Cause.Repository.CauseRepository;
+import com.stackroute.cause.domain.Cause;
+import com.stackroute.cause.exception.CauseAlreadyExistsException;
+import com.stackroute.cause.exception.CauseNotFoundException;
+import com.stackroute.cause.repository.CauseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

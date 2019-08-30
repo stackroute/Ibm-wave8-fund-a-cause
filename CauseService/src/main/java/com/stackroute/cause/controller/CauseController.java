@@ -1,8 +1,13 @@
-package com.stackroute.Cause.Controller;
+package com.stackroute.cause.controller;
 
 
-import com.stackroute.Cause.Domain.Cause;
-import com.stackroute.Cause.Service.CauseService;
+import com.stackroute.cause.domain.Cause;
+import com.stackroute.cause.service.CauseService;
+import com.stackroute.cause.core.Pipeline;
+import edu.stanford.nlp.ling.CoreAnnotations;
+import edu.stanford.nlp.ling.CoreLabel;
+import edu.stanford.nlp.pipeline.CoreDocument;
+import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -90,11 +95,33 @@ public class CauseController {
     }
 
     /*Get cause details using name attribute*/
+    /*Stanford Core NLP used for minimal search*/
     @GetMapping("cause/{name}")
     public ResponseEntity<?> getCauseByName(@PathVariable String name) {
         ResponseEntity responseEntity;
+
+        String search="";
+
+        StanfordCoreNLP stanfordCoreNLP = Pipeline.getPipeline();
+
+        CoreDocument coreDocument = new CoreDocument(name);
+
+        stanfordCoreNLP.annotate(coreDocument);
+
+        List<CoreLabel> coreLabelList = coreDocument.tokens();
+
+
+        for(CoreLabel coreLabel : coreLabelList) {
+
+            String pos = coreLabel.get(CoreAnnotations.PartOfSpeechAnnotation.class);
+            if(pos.equals("NN") || pos.equals("NNP") || pos.equals("NNPS")) {
+                System.out.println(coreLabel.originalText());
+                search = search.concat(" "+coreLabel.originalText());
+            }
+        }
+        search = search.trim();
         try {
-            List<Cause> causeList=service.getCauseByName(name);
+            List<Cause> causeList=service.getCauseByName(search);
             responseEntity = new ResponseEntity<List<Cause>>(causeList, HttpStatus.OK);
         } catch (Exception ex) {
             responseEntity = new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);

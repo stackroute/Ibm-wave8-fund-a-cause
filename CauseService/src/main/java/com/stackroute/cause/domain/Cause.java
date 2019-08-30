@@ -1,4 +1,4 @@
-package com.stackroute.Cause.Domain;
+package com.stackroute.cause.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

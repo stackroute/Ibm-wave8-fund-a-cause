@@ -1,4 +1,4 @@
-package com.stackroute.Cause.Exception;
+package com.stackroute.cause.exception;
 
 public class CauseAlreadyExistsException  extends Exception {
 
