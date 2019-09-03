@@ -1,13 +1,13 @@
-package com.stackroute.donorregistration;
+package com.stackroute.donationservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DonorRegistrationApplication {
+public class DonationserviceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DonorRegistrationApplication.class, args);
+		SpringApplication.run(DonationserviceApplication.class, args);
 	}
 
 }

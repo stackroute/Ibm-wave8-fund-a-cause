@@ -1,19 +1,18 @@
-package com.stackroute.DonorRegistration.Controller;
+package com.stackroute.donorregistration.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.stackroute.DonorRegistration.Domain.Donor;
-import com.stackroute.DonorRegistration.Exceptions.DonorAlreadyExistsException;
-import com.stackroute.DonorRegistration.Exceptions.DonorNotFoundException;
-import com.stackroute.DonorRegistration.Service.DonorService;
+import com.stackroute.donorregistration.domain.Donor;
+import com.stackroute.donorregistration.exceptions.DonorAlreadyExistsException;
+import com.stackroute.donorregistration.exceptions.DonorNotFoundException;
+import com.stackroute.donorregistration.service.DonorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/v1/")
 public class DonorController  {
@@ -67,7 +66,8 @@ public class DonorController  {
 
     }
 
-/*Updation of donor details*/
+    /* Updation of donor details
+    * */
     @PutMapping("/donor/{id}")
     public ResponseEntity<Donor> updateDonorDetails(@RequestBody Donor donor) {
 
@@ -82,6 +82,7 @@ public class DonorController  {
         return responseEntity;
     }
 
+    /* searches a donor by name */
     @GetMapping("/donors/{name}")
     public ResponseEntity<List<Donor>> getByName(@PathVariable String name) throws DonorNotFoundException {
         List<Donor> donor = donorService.getByName(name);

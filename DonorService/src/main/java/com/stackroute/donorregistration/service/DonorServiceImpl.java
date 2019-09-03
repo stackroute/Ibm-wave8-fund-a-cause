@@ -1,10 +1,10 @@
-package com.stackroute.DonorRegistration.Service;
+package com.stackroute.donorregistration.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.stackroute.DonorRegistration.Domain.Donor;
-import com.stackroute.DonorRegistration.Exceptions.DonorAlreadyExistsException;
-import com.stackroute.DonorRegistration.Exceptions.DonorNotFoundException;
-import com.stackroute.DonorRegistration.Repository.DonorRepository;
+import com.stackroute.donorregistration.domain.Donor;
+import com.stackroute.donorregistration.exceptions.DonorAlreadyExistsException;
+import com.stackroute.donorregistration.exceptions.DonorNotFoundException;
+import com.stackroute.donorregistration.repository.DonorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
@@ -49,6 +49,7 @@ public class DonorServiceImpl implements DonorService {
         return donorList;
     }
 
+    /* deletes a donor by id */
     @Override
     public List<Donor> deleteById(String id) throws DonorNotFoundException {
        Optional<Donor> donorId = donorRepository.findById(id);
@@ -58,6 +59,8 @@ public class DonorServiceImpl implements DonorService {
         donorRepository.deleteById(id);
         return donorRepository.findAll();
     }
+
+    /* updates fields of a donor by id */
     @Override
     public Donor updateById(Donor donor) throws DonorNotFoundException {
        Optional<Donor> userOptional = donorRepository.findById(donor.getId());
@@ -74,7 +77,7 @@ public class DonorServiceImpl implements DonorService {
 
 
 
-
+    /* finds a donor by name */
     @Override
     public List<Donor> getByName(String name) throws DonorNotFoundException{
         List<Donor> donorId = donorRepository.findByName(name);

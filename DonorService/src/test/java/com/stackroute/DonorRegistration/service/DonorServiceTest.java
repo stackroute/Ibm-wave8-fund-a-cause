@@ -2,18 +2,16 @@ package com.stackroute.DonorRegistration.service;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.stackroute.DonorRegistration.Domain.Donor;
-import com.stackroute.DonorRegistration.Exceptions.DonorAlreadyExistsException;
-import com.stackroute.DonorRegistration.Exceptions.DonorNotFoundException;
-import com.stackroute.DonorRegistration.Repository.DonorRepository;
-import com.stackroute.DonorRegistration.Service.DonorServiceImpl;
+import com.stackroute.donorregistration.domain.Donor;
+import com.stackroute.donorregistration.exceptions.DonorAlreadyExistsException;
+import com.stackroute.donorregistration.exceptions.DonorNotFoundException;
+import com.stackroute.donorregistration.repository.DonorRepository;
+import com.stackroute.donorregistration.service.DonorServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.kafka.core.KafkaTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
