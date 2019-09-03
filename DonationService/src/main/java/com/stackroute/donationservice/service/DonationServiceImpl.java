@@ -1,6 +1,5 @@
 package com.stackroute.donationservice.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.stackroute.donationservice.domain.Donation;
 import com.stackroute.donationservice.exception.DonationNotFoundException;
 import com.stackroute.donationservice.repository.DonationRepository;
@@ -45,7 +44,6 @@ public class DonationServiceImpl implements DonationService {
         if (donation.isEmpty()) {
             throw new DonationNotFoundException("Donation for particular DonationId does not exists!");
         }
-        // donation.setId(donation.getId())
         return Optional.of(donation.get());
     }
 
@@ -55,7 +53,6 @@ public class DonationServiceImpl implements DonationService {
         if (donation.isEmpty()) {
             throw new DonationNotFoundException("Donation for particular DonorId does not exists!");
         }
-        // donation.setId(donation.getId())
         return Optional.of(donation.get());
     }
 
@@ -67,7 +64,6 @@ public class DonationServiceImpl implements DonationService {
         if (donation.isEmpty()) {
             throw new DonationNotFoundException("Donation for particular ReceiverId does not exists!");
         }
-       // donation.setId(donation.getId())
             return Optional.of(donation.get());
         }
 
@@ -78,7 +74,6 @@ public class DonationServiceImpl implements DonationService {
         if (donation.isEmpty()) {
             throw new DonationNotFoundException("Donation for particular CauseId does not exists!");
         }
-        // donation.setId(donation.getId())
         return Optional.of(donation.get());
     }
 }

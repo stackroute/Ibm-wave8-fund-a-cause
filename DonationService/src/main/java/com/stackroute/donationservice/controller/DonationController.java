@@ -46,7 +46,6 @@ public class DonationController {
     }
 
     //Get all the registered donations by DonationId
-    //@RequestMapping(method = RequestMethod.GET)
     @GetMapping("/donationId/{donationId}")
     public ResponseEntity<Optional<Donation>> searchByDonationId(@PathVariable String donationId) throws  DonationNotFoundException{
         ResponseEntity responseEntity;

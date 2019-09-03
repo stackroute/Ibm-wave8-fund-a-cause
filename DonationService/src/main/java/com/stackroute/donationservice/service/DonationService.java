@@ -1,6 +1,6 @@
 package com.stackroute.donationservice.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+
 import com.stackroute.donationservice.domain.Donation;
 import com.stackroute.donationservice.exception.DonationNotFoundException;
 
