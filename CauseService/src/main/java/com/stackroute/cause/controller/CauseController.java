@@ -35,13 +35,7 @@ public class CauseController {
     @PostMapping("cause")
     public ResponseEntity<?> saveNewCause(@RequestBody Cause cause){
         ResponseEntity responseEntity;
-        /* try {
-            byte[] ba = new ObjectMapper().writeValueAsString(owner).getBytes();
-            kafkaTemplate.send(new ProducerRecord<byte[],byte[]>(TOPIC, ba));
-            responseEntity = new ResponseEntity("Cause Successfully Created", HttpStatus.CREATED);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }*/
+
         try{
             service.saveNewCause(cause);
             responseEntity=new ResponseEntity<String>("Cause is registered", HttpStatus.CREATED);
