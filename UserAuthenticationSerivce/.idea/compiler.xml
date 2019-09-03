@@ -6,8 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="securityauthentication" />
         <module name="spring-boot-jwt-tr" />
+        <module name="securityauthentication" />
       </profile>
     </annotationProcessing>
   </component>
