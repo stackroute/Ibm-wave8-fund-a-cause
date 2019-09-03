@@ -27,6 +27,7 @@ public class DonarController {
     public ResponseEntity<?> deleteDonor(@PathVariable String id){
 
         //send the id to the donor microService using kafka to delete donor
+
         kafkaTemplate.send(TOPIC,id);
         ResponseEntity responseEntity = new ResponseEntity("Deleted Successfully ", HttpStatus.OK);
 
@@ -37,6 +38,7 @@ public class DonarController {
     public ResponseEntity<?> updateDonorDetails(@RequestBody Object donor) {
 
        //send the updated donor to the donor microService using kafka to update donor
+
        kafkaTemplate.send(TOPIC2,donor);
         ResponseEntity responseEntity;
         responseEntity= new ResponseEntity<String>("Donor details updated!", HttpStatus.CREATED);
