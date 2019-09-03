@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { BasicAuthHtppInterceptorService } from './service/basic-auth-htpp-interceptor.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import{ RegistrationC }
 
 @NgModule({
   declarations: [

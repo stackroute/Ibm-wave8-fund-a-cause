@@ -29,8 +29,9 @@ import java.util.Map;
 
 import static org.springframework.http.ResponseEntity.ok;
 
+@CrossOrigin("*")
 @RestController
-@CrossOrigin
+
 public class JwtAuthenticationController {
 
     @Autowired

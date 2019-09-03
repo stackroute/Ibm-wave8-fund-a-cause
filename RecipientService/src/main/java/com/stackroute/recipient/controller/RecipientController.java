@@ -21,7 +21,7 @@ public class RecipientController {
         this.service = service;
     }
 
-    /*Registration of new Receipient*/
+    /*Registration of new Recipient*/
 
     @PostMapping("owner")
     public ResponseEntity<?> saveNewOwner(@RequestBody Recipient owner){
@@ -55,7 +55,7 @@ public class RecipientController {
         return responseEntity;
     }
 
-    /*Delete the Registered Owners using id*/
+    /*Delete the Registered Recipient using id*/
     @DeleteMapping({"owner/{id}"})
     public ResponseEntity<?> deleteOwner(@PathVariable("id") String id){
         ResponseEntity responseEntity;
@@ -68,7 +68,7 @@ public class RecipientController {
         return responseEntity;
     }
 
-    /*Update the Registered Owners using id*/
+    /*Update the Registered Recipient using id*/
     @PutMapping("owner/{id}")
     public ResponseEntity<?> UpdateOwner(@RequestBody Recipient owner ){
         ResponseEntity responseEntity;
@@ -81,7 +81,7 @@ public class RecipientController {
         return responseEntity;
     }
 
-    /*Get owner details using name attribute*/
+    /*Get recipient details using name attribute*/
     @GetMapping("owner/{id}")
     public ResponseEntity<?> getOwnerByName(@PathVariable String id) {
         ResponseEntity responseEntity;
