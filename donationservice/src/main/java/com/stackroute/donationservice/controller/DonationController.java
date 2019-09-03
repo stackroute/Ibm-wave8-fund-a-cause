@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/")
+@RequestMapping("/api/v1")
 public class DonationController {
 
     private DonationService donationService;
@@ -45,29 +45,42 @@ public class DonationController {
         return responseEntity;
     }
 
+//Get all the registered donations by DonationId
+//    @GetMapping("/Ddonation/{donationId}")
+//    public ResponseEntity<Optional<Donation>> searchByDonationId(@PathVariable String Id)
+//    {
+//        Optional<Donation> donation = donationService.getByDonationId(Id);
+//        return new ResponseEntity<Optional<Donation>>(donation, HttpStatus.OK);
+//    }
 
-    @GetMapping("/donation/{donationId}")
-    public ResponseEntity<Optional<Donation>> searchByDonationId(@PathVariable String Id)
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<Optional<Donation>> searchByDonationId(@RequestParam(value="Id") String Id)
     {
-        Optional<Donation> donation = donationService.getById(Id);
+        Optional<Donation> donation = donationService.getByDonationId(Id);
         return new ResponseEntity<Optional<Donation>>(donation, HttpStatus.OK);
     }
-    @GetMapping("/donation/{receiverId}")
-    public ResponseEntity<Optional<Donation>> searchByReceiverId(@PathVariable String Id)
+
+    //Get all the registered donations by ReceiverId
+    @GetMapping("/Rdonation/{receiverId}")
+    public ResponseEntity<Optional<Donation>> searchByReceiverId(@PathVariable String receiverId)
     {
-        Optional<Donation> donation = donationService.getById(Id);
+        Optional<Donation> donation = donationService.getByReceiverId(receiverId);
         return new ResponseEntity<Optional<Donation>>(donation, HttpStatus.OK);
     }
-    @GetMapping("/donation/{donorId}")
-    public ResponseEntity<Optional<Donation>> searchByDonorId(@PathVariable String Id)
+
+    //Get all the registered donations by DonorId
+    @GetMapping("/Ddonation/{donorId}")
+    public ResponseEntity<Optional<Donation>> searchByDonorId(@PathVariable String donorId)
     {
-        Optional<Donation> donation = donationService.getById(Id);
+        Optional<Donation> donation = donationService.getByDonorId(donorId);
         return new ResponseEntity<Optional<Donation>>(donation, HttpStatus.OK);
     }
-    @GetMapping("/donation/{causeId}")
-    public ResponseEntity<Optional<Donation>> searchByCauseId(@PathVariable String Id)
+
+    //Get all the registered donations by DonationId
+    @GetMapping("/Cdonation/{causeId}")
+    public ResponseEntity<Optional<Donation>> searchByCauseId(@PathVariable String causeId)
     {
-        Optional<Donation> donation = donationService.getById(Id);
+        Optional<Donation> donation = donationService.getByCauseId(causeId);
         return new ResponseEntity<Optional<Donation>>(donation, HttpStatus.OK);
     }
 

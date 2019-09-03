@@ -39,8 +39,26 @@ public class DonationServiceImpl implements DonationService {
     }
 
     @Override
-    public Optional<Donation> getById(String id) {
-        Optional<Donation> donation = donationRepository.findById(id);
+    public Optional<Donation> getByDonationId(String id) {
+        Optional<Donation> donation = donationRepository.searchByDonationId(id);
+        return donation;
+    }
+
+    @Override
+    public Optional<Donation> getByDonorId(String id) {
+        Optional<Donation> donation = donationRepository.searchByDonorId(id);
+        return donation;
+    }
+
+    @Override
+    public Optional<Donation> getByReceiverId(String id) {
+        Optional<Donation> donation = donationRepository.searchByReceiverId(id);
+        return donation;
+    }
+
+    @Override
+    public Optional<Donation> getByCauseId(String id) {
+        Optional<Donation> donation = donationRepository.searchByCauseId(id);
         return donation;
     }
 }
