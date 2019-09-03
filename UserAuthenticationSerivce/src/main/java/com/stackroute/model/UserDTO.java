@@ -4,6 +4,7 @@ package com.stackroute.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class UserDTO {
+    //setting and getting the fields of user
 
     private String email;
     private String password;
