@@ -59,6 +59,8 @@ public class DonorServiceImpl implements DonorService {
         donorRepository.deleteById(id);
         return donorRepository.findAll();
     }
+
+    /* updates fields of a donor by id */
     @Override
     public Donor updateById(Donor donor) throws DonorNotFoundException {
        Optional<Donor> userOptional = donorRepository.findById(donor.getId());
