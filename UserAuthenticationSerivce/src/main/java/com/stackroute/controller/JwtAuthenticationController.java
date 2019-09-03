@@ -62,6 +62,7 @@ public class JwtAuthenticationController {
 //        return ok(userDetailsService.save(user));
 //    }
 
+    //authenticating username and password
     private void authenticate(String email, String password) throws Exception {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));

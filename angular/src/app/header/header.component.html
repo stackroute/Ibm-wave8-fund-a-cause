@@ -1,16 +1,15 @@
-<header>
-  <nav class ="navbar navbar-expand-md navbar-dark bg-dark">
-  
-  
-  <ul class="navbar-nav">
-    <!-- <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/" class="nav-link">View Employees</a></li> -->
-    <!-- <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/addemployee" class="nav-link">Add New Employee</a></li> -->
-    <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
-    <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li>
-  
-  
-  </ul>
-  
-  </nav>
-  
-  </header>
+<!--The content below is only a placeholder and can be replaced.-->
+<mat-toolbar id="navbar">
+  <mat-toolbar-row>
+    <!--  <span>HOME</span> -->
+     <span><a href="/"><img src="../assets/images/logo3.jpg"></a></span>
+     <span class="spacer"></span>
+     <a mat-button routerLink="/register">Register</a>
+     <a mat-button routerLink="/login">Login</a>
+     <a mat-button routerLink="/edit">Edit Profile</a>
+  </mat-toolbar-row>
+</mat-toolbar>
+<!--div class="center">
+<app-registration></app-registration>
+</div-->
+<router-outlet></router-outlet>
