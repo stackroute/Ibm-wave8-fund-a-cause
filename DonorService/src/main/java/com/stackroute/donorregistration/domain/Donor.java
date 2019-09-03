@@ -18,9 +18,11 @@ public class Donor {
     private long phoneNumber;
     @Transient private int operation;
 
+    //No argument constructor of Donor class
     public Donor() {
     }
 
+    //argument constructor of Donor class
     public Donor(String id, String name, String email, String password, String role, long phoneNumber,int operation) {
         this.id = id;
         this.name = name;
@@ -30,6 +32,8 @@ public class Donor {
         this.phoneNumber = phoneNumber;
         this.operation = operation;
     }
+
+    //getter and setter methods of Donor fields
 
     public int getOperation() {
         return operation;

@@ -66,7 +66,8 @@ public class DonorController  {
 
     }
 
-    /* Updation of donor details */
+    /* Updation of donor details
+    * */
     @PutMapping("/donor/{id}")
     public ResponseEntity<Donor> updateDonorDetails(@RequestBody Donor donor) {
 
