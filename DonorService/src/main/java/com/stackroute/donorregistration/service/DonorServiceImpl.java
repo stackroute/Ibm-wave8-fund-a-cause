@@ -77,7 +77,7 @@ public class DonorServiceImpl implements DonorService {
 
 
 
-
+    /* finds a donor by name */
     @Override
     public List<Donor> getByName(String name) throws DonorNotFoundException{
         List<Donor> donorId = donorRepository.findByName(name);
