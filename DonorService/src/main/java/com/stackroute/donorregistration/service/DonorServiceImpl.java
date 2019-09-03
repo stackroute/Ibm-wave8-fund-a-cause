@@ -49,6 +49,7 @@ public class DonorServiceImpl implements DonorService {
         return donorList;
     }
 
+    /* deletes a donor by id */
     @Override
     public List<Donor> deleteById(String id) throws DonorNotFoundException {
        Optional<Donor> donorId = donorRepository.findById(id);
