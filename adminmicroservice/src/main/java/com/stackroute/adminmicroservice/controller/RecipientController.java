@@ -27,6 +27,7 @@ public class RecipientController{
     public ResponseEntity<?> deleteRecipient(@PathVariable String id){
 
         //send the id to the recipient microService using kafka to delete recipient
+        
         kafkaTemplate.send(TOPIC,id);
         ResponseEntity responseEntity = new ResponseEntity("Deleted Successfully ", HttpStatus.OK);
 
@@ -39,6 +40,7 @@ public class RecipientController{
     public ResponseEntity<?> updateRecipientDetails(@RequestBody Object recipient) {
 
         //send the updated recipient to the recipient microService using kafka to update recipient
+
         kafkaTemplate.send(TOPIC2,recipient);
 
         ResponseEntity responseEntity;

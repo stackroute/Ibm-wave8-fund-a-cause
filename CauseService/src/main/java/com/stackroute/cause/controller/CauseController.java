@@ -62,7 +62,7 @@ public class CauseController {
         return responseEntity;
     }
 
-    /*Delete the cause using id*/
+    /*Delete the cause using id attribute*/
     @DeleteMapping({"cause/{id}"})
     public ResponseEntity<?> deleteCause(@PathVariable("id") String id){
         ResponseEntity responseEntity;
@@ -75,7 +75,7 @@ public class CauseController {
         return responseEntity;
     }
 
-    /*Update the cause using name*/
+    /*Update the cause using id attribute*/
     @PutMapping("cause/{id}")
     public ResponseEntity<?> updateCause(@RequestBody Cause cause){
         ResponseEntity responseEntity;
