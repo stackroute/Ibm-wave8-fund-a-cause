@@ -29,7 +29,7 @@ public class RecipientController {
 
        try{
             service.saveNewProductOwner(owner);
-            responseEntity=new ResponseEntity<String>("Owner is registered", HttpStatus.CREATED);
+            responseEntity=new ResponseEntity<String>("Recipient is registered", HttpStatus.CREATED);
         }
         catch (Exception ex){
             responseEntity=new ResponseEntity<String>(ex.getMessage(),HttpStatus.CONFLICT);
@@ -61,7 +61,7 @@ public class RecipientController {
         ResponseEntity responseEntity;
         try {
             service.deleteOwner(id);
-            responseEntity = new ResponseEntity<String>("Owner deleted", HttpStatus.OK);
+            responseEntity = new ResponseEntity<String>("Recipient deleted", HttpStatus.OK);
         } catch (Exception e) {
             responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
         }
@@ -74,7 +74,7 @@ public class RecipientController {
         ResponseEntity responseEntity;
         try {
             service.updateOwnerdetails(owner);
-            responseEntity= new ResponseEntity<String>("Owner Details updated", HttpStatus.CREATED);
+            responseEntity= new ResponseEntity<String>("Recipient Details updated", HttpStatus.CREATED);
         } catch (Exception e) {
             responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
         }
