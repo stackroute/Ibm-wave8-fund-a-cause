@@ -1,5 +1,4 @@
 package com.stackroute.donationservice.controller;
-import com.stackroute.donationservice.DonationserviceApplication;
 import com.stackroute.donationservice.domain.Donation;
 import com.stackroute.donationservice.service.DonationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,15 +43,7 @@ public class DonationController {
         }
         return responseEntity;
     }
-
 //Get all the registered donations by DonationId
-//    @GetMapping("/Ddonation/{donationId}")
-//    public ResponseEntity<Optional<Donation>> searchByDonationId(@PathVariable String Id)
-//    {
-//        Optional<Donation> donation = donationService.getByDonationId(Id);
-//        return new ResponseEntity<Optional<Donation>>(donation, HttpStatus.OK);
-//    }
-
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<Optional<Donation>> searchByDonationId(@RequestParam(value="Id") String Id)
     {

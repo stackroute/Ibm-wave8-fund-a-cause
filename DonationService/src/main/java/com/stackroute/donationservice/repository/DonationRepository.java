@@ -11,6 +11,7 @@ import java.util.Optional;
 @Repository
 public interface DonationRepository extends MongoRepository<Donation, String>
 {
+    //Query for extracting all the donations by DonationId,DonorId,CauseId and ReceiverId
 
     @Query("{donationId:'?0'}")
     Optional<Donation> searchByDonationId(String id);
