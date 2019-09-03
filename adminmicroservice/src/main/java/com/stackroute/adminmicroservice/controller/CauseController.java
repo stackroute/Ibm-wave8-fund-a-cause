@@ -26,6 +26,8 @@ public class CauseController{
     private final Logger logger = LoggerFactory.getLogger(Consumer.class);
 
 
+    //Delete Cause
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteCause(@PathVariable String id){
 
@@ -36,6 +38,8 @@ public class CauseController{
 
         return  responseEntity;
     }
+
+    //Update Cause
 
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updateCauseDetails(@RequestBody  Object cause) {

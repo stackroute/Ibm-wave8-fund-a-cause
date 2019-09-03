@@ -22,20 +22,21 @@ public class RecipientController{
 
     private final Logger logger = LoggerFactory.getLogger(Consumer.class);
 
+    //Delete Recipient
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteRecipient(@PathVariable String id){
 
         //send the id to the recipient microService using kafka to delete recipient
-        
+
         kafkaTemplate.send(TOPIC,id);
         ResponseEntity responseEntity = new ResponseEntity("Deleted Successfully ", HttpStatus.OK);
 
         return  responseEntity;
     }
 
-
     /*Updation of recipient details*/
+
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updateRecipientDetails(@RequestBody Object recipient) {
 
@@ -48,6 +49,5 @@ public class RecipientController{
 
         return responseEntity;
     }
-
 
 }

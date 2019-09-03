@@ -23,6 +23,8 @@ public class DonarController {
 
     private final Logger logger = LoggerFactory.getLogger(Consumer.class);
 
+    //Delete Donor
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteDonor(@PathVariable String id){
 
@@ -33,6 +35,8 @@ public class DonarController {
 
         return  responseEntity;
         }
+
+        //Update Donor
 
    @PutMapping("/update/{id}")
     public ResponseEntity<?> updateDonorDetails(@RequestBody Object donor) {
