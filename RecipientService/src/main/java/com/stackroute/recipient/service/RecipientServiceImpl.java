@@ -32,9 +32,9 @@ public class RecipientServiceImpl implements RecipientService {
             throw new RecipientAlreadyExistsException("Owner already exists!");
         }
         kafkaTemplate.send(TOPIC,owner);
-        Recipient savedOwner = repository.save(owner);
+        return repository.save(owner);
 
-        return savedOwner;
+
 
 
     }
@@ -68,7 +68,7 @@ public class RecipientServiceImpl implements RecipientService {
         if(ownerOptional.isEmpty()){
             throw new RecipientNotFoundException("Owner not found!");
         }
-        //owner.setId(id);
+
         repository.save(owner);
         return ownerOptional.get();
     }
