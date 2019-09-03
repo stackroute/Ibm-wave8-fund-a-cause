@@ -26,9 +26,7 @@ public class CauseServiceImpl implements CauseService {
         if (repository.existsById(cause.getId())) {
             throw new CauseAlreadyExistsException("Cause already exists!");
         }
-        Cause savedCause = repository.save(cause);
-        return savedCause;
-
+        return repository.save(cause);
     }
 
     @Override
@@ -55,13 +53,13 @@ public class CauseServiceImpl implements CauseService {
 
     @Override
     public Cause updateCausedetails(Cause cause) throws CauseNotFoundException {
-        Optional<Cause> Optional = repository.findById(cause.getId());
-        if(Optional.isEmpty()){
+        Optional<Cause> causeOptional = repository.findById(cause.getId());
+        if(causeOptional.isEmpty()){
             throw new CauseNotFoundException("Cause not found!");
         }
 
         repository.save(cause);
-        return Optional.get();    }
+        return causeOptional.get();    }
 
     @Override
     public List<Cause> getCauseByName(String name) throws CauseNotFoundException {
