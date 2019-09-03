@@ -35,13 +35,7 @@ public class CauseController {
     @PostMapping("cause")
     public ResponseEntity<?> saveNewCause(@RequestBody Cause cause){
         ResponseEntity responseEntity;
-        /* try {
-            byte[] ba = new ObjectMapper().writeValueAsString(owner).getBytes();
-            kafkaTemplate.send(new ProducerRecord<byte[],byte[]>(TOPIC, ba));
-            responseEntity = new ResponseEntity("Cause Successfully Created", HttpStatus.CREATED);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }*/
+
         try{
             service.saveNewCause(cause);
             responseEntity=new ResponseEntity<String>("Cause is registered", HttpStatus.CREATED);
@@ -68,7 +62,7 @@ public class CauseController {
         return responseEntity;
     }
 
-    /*Delete the cause using id*/
+    /*Delete the cause using id attribute*/
     @DeleteMapping({"cause/{id}"})
     public ResponseEntity<?> deleteCause(@PathVariable("id") String id){
         ResponseEntity responseEntity;
@@ -81,7 +75,7 @@ public class CauseController {
         return responseEntity;
     }
 
-    /*Update the cause using name*/
+    /*Update the cause using id attribute*/
     @PutMapping("cause/{id}")
     public ResponseEntity<?> updateCause(@RequestBody Cause cause){
         ResponseEntity responseEntity;

@@ -21,7 +21,7 @@ public class RecipientController {
         this.service = service;
     }
 
-    /*Registration of new Receipient*/
+    /*Registration of new Recipient*/
 
     @PostMapping("owner")
     public ResponseEntity<?> saveNewOwner(@RequestBody Recipient owner){
@@ -29,7 +29,7 @@ public class RecipientController {
 
        try{
             service.saveNewProductOwner(owner);
-            responseEntity=new ResponseEntity<String>("Owner is registered", HttpStatus.CREATED);
+            responseEntity=new ResponseEntity<String>("Recipient is registered", HttpStatus.CREATED);
         }
         catch (Exception ex){
             responseEntity=new ResponseEntity<String>(ex.getMessage(),HttpStatus.CONFLICT);
@@ -55,33 +55,33 @@ public class RecipientController {
         return responseEntity;
     }
 
-    /*Delete the Registered Owners using id*/
+    /*Delete the Registered Recipient using id*/
     @DeleteMapping({"owner/{id}"})
     public ResponseEntity<?> deleteOwner(@PathVariable("id") String id){
         ResponseEntity responseEntity;
         try {
             service.deleteOwner(id);
-            responseEntity = new ResponseEntity<String>("Owner deleted", HttpStatus.OK);
+            responseEntity = new ResponseEntity<String>("Recipient deleted", HttpStatus.OK);
         } catch (Exception e) {
             responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
         }
         return responseEntity;
     }
 
-    /*Update the Registered Owners using id*/
+    /*Update the Registered Recipient using id*/
     @PutMapping("owner/{id}")
     public ResponseEntity<?> UpdateOwner(@RequestBody Recipient owner ){
         ResponseEntity responseEntity;
         try {
             service.updateOwnerdetails(owner);
-            responseEntity= new ResponseEntity<String>("Owner Details updated", HttpStatus.CREATED);
+            responseEntity= new ResponseEntity<String>("Recipient Details updated", HttpStatus.CREATED);
         } catch (Exception e) {
             responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
         }
         return responseEntity;
     }
 
-    /*Get owner details using name attribute*/
+    /*Get recipient details using name attribute*/
     @GetMapping("owner/{id}")
     public ResponseEntity<?> getOwnerByName(@PathVariable String id) {
         ResponseEntity responseEntity;

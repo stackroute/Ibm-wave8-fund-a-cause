@@ -1,0 +1,4 @@
+com/stackroute/DonorRegistration/repository/DonorRepositoryTest.class
+com/stackroute/DonorRegistration/controller/DonorControllerTest.class
+com/stackroute/DonorRegistration/service/DonorServiceTest.class
+com/stackroute/DonorRegistration/DonorRegistrationApplicationTests.class

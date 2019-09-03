@@ -9,7 +9,10 @@ import java.util.Optional;
 public interface DonationService {
     public Donation saveNewDonation(Donation donation);
     public List<Donation> getAllDonation();
-    public Optional<Donation> getById(String Id);
+    public Optional<Donation> getByDonationId(String Id);
+    public Optional<Donation> getByDonorId(String Id);
+    public Optional<Donation> getByReceiverId(String Id);
+    public Optional<Donation> getByCauseId(String Id);
 
 
 }

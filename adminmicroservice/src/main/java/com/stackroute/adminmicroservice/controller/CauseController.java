@@ -26,20 +26,26 @@ public class CauseController{
     private final Logger logger = LoggerFactory.getLogger(Consumer.class);
 
 
+    //Delete Cause
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteCause(@PathVariable String id){
 
         //send the id to the cause microService using kafka to delete cause
+
         kafkaTemplate.send(TOPIC,id);
         ResponseEntity responseEntity = new ResponseEntity("Deleted Successfully ", HttpStatus.OK);
 
         return  responseEntity;
     }
 
+    //Update Cause
+
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updateCauseDetails(@RequestBody  Object cause) {
 
         //send the updated cause to the cause microService using kafka to update cause
+
         kafkaTemplate.send(TOPIC2,cause);
         ResponseEntity responseEntity;
         responseEntity= new ResponseEntity<String>("Cause details updated!", HttpStatus.CREATED);
