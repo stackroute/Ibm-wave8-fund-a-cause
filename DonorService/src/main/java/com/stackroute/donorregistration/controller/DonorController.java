@@ -66,7 +66,7 @@ public class DonorController  {
 
     }
 
-/*Updation of donor details*/
+    /* Updation of donor details */
     @PutMapping("/donor/{id}")
     public ResponseEntity<Donor> updateDonorDetails(@RequestBody Donor donor) {
 
@@ -81,6 +81,7 @@ public class DonorController  {
         return responseEntity;
     }
 
+    /* searches a donor by name */
     @GetMapping("/donors/{name}")
     public ResponseEntity<List<Donor>> getByName(@PathVariable String name) throws DonorNotFoundException {
         List<Donor> donor = donorService.getByName(name);
