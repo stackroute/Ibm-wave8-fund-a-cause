@@ -18,7 +18,7 @@ public class JwtTokenUtil implements Serializable {
     @Value("${jwt.secret}")
     private String secret;
 
-    //retrieve username from jwt token
+    //retrieving username from jwt token
     public String getUsernameFromToken(String token) {
         return getClaimFromToken(token, Claims::getSubject);
     }
