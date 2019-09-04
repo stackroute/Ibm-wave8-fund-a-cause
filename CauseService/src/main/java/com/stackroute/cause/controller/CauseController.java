@@ -18,12 +18,12 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping(value="api/v1")
+@RequestMapping(value="api/v1/")
 public class CauseController {
     private CauseService service;
 
     @Autowired
-    private KafkaTemplate<String,Object> kafkaTemplate;
+    private KafkaTemplate<String,Cause> kafkaTemplate;
 
     public static final String TOPIC="Cause";
 
