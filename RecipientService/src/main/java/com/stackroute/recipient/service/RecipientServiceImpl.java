@@ -82,6 +82,15 @@ public class RecipientServiceImpl implements RecipientService {
         }
         return product;
     }
+    @Override
+    public Recipient getProductOwnerById(String id) throws RecipientNotFoundException {
+        Optional<Recipient> product =repository.findById(id);
+        if(product.isEmpty())
+        {
+            throw  new RecipientNotFoundException("Owner not Found");
+        }
+        return product.get();
+    }
 
 
 }

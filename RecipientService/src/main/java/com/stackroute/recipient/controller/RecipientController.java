@@ -95,4 +95,21 @@ public class RecipientController {
         return responseEntity;
     }
 
+
+    @GetMapping("ownerdetails/{id}")
+    public ResponseEntity<?> getOwnerById(@PathVariable String id) {
+        ResponseEntity responseEntity;
+        try {
+            Recipient recipient =service.getProductOwnerById(id);
+            responseEntity = new ResponseEntity<Recipient>(recipient, HttpStatus.OK);
+        } catch (Exception ex) {
+            responseEntity = new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
+            ex.printStackTrace();
+        }
+        return responseEntity;
+    }
+
+
+
+
 }
