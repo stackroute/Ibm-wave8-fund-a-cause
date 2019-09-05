@@ -18,4 +18,6 @@ public interface DonorService {
 
     List<Donor> getByName(String name) throws DonorNotFoundException;
 
+    Donor getById(String id) throws DonorNotFoundException;
+
 }

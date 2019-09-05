@@ -86,4 +86,15 @@ public class DonorServiceImpl implements DonorService {
         }
         return donorId;
     }
+
+    /* finds a donor by id */
+    @Override
+    public Donor getById(String id) throws DonorNotFoundException {
+        Optional<Donor> product = donorRepository.findById(id);
+        if(product.isEmpty())
+        {
+            throw  new DonorNotFoundException("Donor not Found");
+        }
+        return product.get();
+    }
 }
