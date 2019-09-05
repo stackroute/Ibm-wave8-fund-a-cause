@@ -5,10 +5,6 @@ h
 8src/main/java/com/stackroute/listener/KafkaConsumer.java,5/1/51e2b43348d24187c22df942a5992c8ebf16fedb
 k
 ;src/main/java/com/stackroute/config/KafkaConfiguration.java,8/b/8bd11ce872519c3b5b65383a78ea8a0c455ddae1
-<<<<<<< HEAD
-x
-Hsrc/main/java/com/stackroute/controller/JwtAuthenticationController.java,8/5/85953b0df95178408f968d429fc122288d4eb064
-=======
 ]
 -src/main/java/com/stackroute/model/Users.java,f/6/f65739a59d30f040d79341c6099b4d287bb44dd0
 t
@@ -23,4 +19,3 @@ o
 ?src/main/java/com/stackroute/service/JwtUserDetailsService.java,c/a/ca880bdd83c4bb457b861288caacdccd6dde6050
 ]
 -src/main/java/com/stackroute/dao/UserDao.java,b/a/ba77f76631d16cda488c8e52d91c4d2160cade65
->>>>>>> 1a6c0a7c97ebf5c198dda91e4c9159e8a5366a98

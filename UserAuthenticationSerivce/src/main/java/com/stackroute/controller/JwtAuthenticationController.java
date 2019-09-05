@@ -1,29 +1,24 @@
 package com.stackroute.controller;
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.stackroute.dao.UserDao;
-import com.stackroute.model.Users;
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.stackroute.config.JwtTokenUtil;
+
+import com.stackroute.model.UserDTO;
+import com.stackroute.service.JwtUserDetailsService;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.stackroute.config.JwtTokenUtil;
-import com.stackroute.model.JwtRequest;
-import com.stackroute.model.JwtResponse;
-import com.stackroute.model.UserDTO;
-import com.stackroute.service.JwtUserDetailsService;
-
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -55,6 +50,22 @@ public class JwtAuthenticationController {
         model.put("role",user.getRole());
         model.put("token",token);
         return ok(model);
+    }
+    @RequestMapping(value = "/forgot-password", method = RequestMethod.POST)
+    public ResponseEntity<?> getEmail(@RequestBody String username) throws Exception {
+        System.out.println(username);
+        JSONObject jsonObject = new JSONObject(username);
+        username = jsonObject.getString("username");
+        System.out.println(username);
+        final String userDetails = userDetailsService.forgotPassword(username);
+        return ok(userDetails);
+    }
+    @RequestMapping(value = "/reset-password", method = RequestMethod.PUT)
+    public ResponseEntity<?> getNewPassword(@RequestBody UserDTO userDTO) throws Exception {
+        System.out.println(userDTO);
+        ResponseEntity responseEntity;
+        responseEntity = new ResponseEntity<>(userDetailsService.update(userDTO), HttpStatus.OK);
+        return responseEntity;
     }
 
 //    @RequestMapping(value = "/register", method = RequestMethod.POST)
