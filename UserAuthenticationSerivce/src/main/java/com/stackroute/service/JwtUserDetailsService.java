@@ -44,7 +44,7 @@ public class JwtUserDetailsService implements UserDetailsService {
     private JavaMailSender javaMailSender;
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Users user = userDao.findByEmail(email);
+        Users user = userDao.findByemail(email);
         if (user == null) {
             throw new UsernameNotFoundException("User not found with email: " + email);
         }
@@ -62,9 +62,9 @@ public class JwtUserDetailsService implements UserDetailsService {
 public String forgotPassword(String username) throws MessagingException {
     String status = "Failed";
     System.out.println(username);
-    System.out.println(userDao.findByEmail(username));
+    System.out.println(userDao.findByemail(username));
     System.out.println("abcd");
-    if (userDao.findByEmail(username) != null) {
+    if (userDao.findByemail(username) != null) {
         System.out.println(username);
         System.out.println("efgh");
         MimeMessage message=javaMailSender.createMimeMessage();
@@ -82,10 +82,11 @@ public String forgotPassword(String username) throws MessagingException {
     return status;
 }
     public Users update(UserDTO userDTO) throws Exception {
-        Users user = userDao.findByEmail(userDTO.getEmail());
+        Users user = userDao.findByemail(userDTO.getEmail());
         if (user != null) {
             user.setPassword(bcryptEncoder.encode(userDTO.getPassword()));
         }
+        System.out.println(user);
         return userDao.save(user);
     }
 }

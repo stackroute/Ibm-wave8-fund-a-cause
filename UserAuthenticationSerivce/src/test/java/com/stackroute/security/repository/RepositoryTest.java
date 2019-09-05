@@ -54,8 +54,8 @@ public class RepositoryTest {
 
     @Test
     public void findByUsername() {
-        when(userDao.findByEmail(user.getEmail())).thenReturn(user);
-        Assert.assertEquals(user, userDao.findByEmail(userDTO.getEmail()));
+        when(userDao.findByemail(user.getEmail())).thenReturn(user);
+        Assert.assertEquals(user, userDao.findByemail(userDTO.getEmail()));
     }
 }
 

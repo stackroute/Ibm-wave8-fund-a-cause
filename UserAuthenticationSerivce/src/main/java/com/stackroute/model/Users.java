@@ -10,7 +10,6 @@ import javax.persistence.*;
 @Table(name="user")
 public class Users {
 
-
     @Id
     @Column
     @JsonProperty("email")

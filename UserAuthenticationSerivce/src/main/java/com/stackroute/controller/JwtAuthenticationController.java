@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.stackroute.config.JwtTokenUtil;
 
 import com.stackroute.model.UserDTO;
+import com.stackroute.model.Users;
 import com.stackroute.service.JwtUserDetailsService;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,6 @@ import static org.springframework.http.ResponseEntity.ok;
 
 @CrossOrigin("*")
 @RestController
-
 public class JwtAuthenticationController {
 
     @Autowired
@@ -51,27 +51,25 @@ public class JwtAuthenticationController {
         model.put("token",token);
         return ok(model);
     }
+
     @RequestMapping(value = "/forgot-password", method = RequestMethod.POST)
-    public ResponseEntity<?> getEmail(@RequestBody String username) throws Exception {
-        System.out.println(username);
-        JSONObject jsonObject = new JSONObject(username);
-        username = jsonObject.getString("username");
-        System.out.println(username);
-        final String userDetails = userDetailsService.forgotPassword(username);
+    public ResponseEntity<?> getEmail(@RequestBody String email) throws Exception {
+        System.out.println(email);
+        JSONObject jsonObject = new JSONObject(email);
+        email = jsonObject.getString("email");
+        final String userDetails = userDetailsService.forgotPassword(email);
         return ok(userDetails);
+
     }
     @RequestMapping(value = "/reset-password", method = RequestMethod.PUT)
     public ResponseEntity<?> getNewPassword(@RequestBody UserDTO userDTO) throws Exception {
-        System.out.println(userDTO);
-        ResponseEntity responseEntity;
-        responseEntity = new ResponseEntity<>(userDetailsService.update(userDTO), HttpStatus.OK);
-        return responseEntity;
+        return new ResponseEntity<>(userDetailsService.update(userDTO), HttpStatus.OK);
     }
 
-//    @RequestMapping(value = "/register", method = RequestMethod.POST)
-//    public ResponseEntity<?> saveUser(@RequestBody Users user) throws Exception {
-//        return ok(userDetailsService.save(user));
-//    }
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public ResponseEntity<?> saveUser(@RequestBody Users user) throws Exception {
+        return ok(userDetailsService.save(user));
+    }
 
     //authenticating username and password
     private void authenticate(String email, String password) throws Exception {

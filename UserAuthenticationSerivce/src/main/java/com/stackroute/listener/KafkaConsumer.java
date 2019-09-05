@@ -31,7 +31,7 @@ public class KafkaConsumer {
         }
         else if(user.getOperation()==0)
         {
-            userDao.deleteByEmail(user.getEmail());
+            userDao.deleteByemail(user.getEmail());
         }
 
     }
