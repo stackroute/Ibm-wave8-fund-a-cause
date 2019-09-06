@@ -75,12 +75,12 @@ public class RecipientServiceImpl implements RecipientService {
     }
 
     @Override
-    public List<Recipient> getProductOwnerByName(String owner) throws RecipientNotFoundException {
-        List<Recipient> product =repository.getProductOwnerByEmail(owner);
-        if(product.isEmpty())
-        {
-            throw  new RecipientNotFoundException("Owner not Found");
-        }
+    public Recipient getProductOwnerByName(String owner) throws RecipientNotFoundException {
+        Recipient product =repository.getProductOwnerByEmail(owner);
+//        if(product.isEmpty())
+//        {
+//            throw  new RecipientNotFoundException("Owner not Found");
+//        }
         return product;
     }
     @Override

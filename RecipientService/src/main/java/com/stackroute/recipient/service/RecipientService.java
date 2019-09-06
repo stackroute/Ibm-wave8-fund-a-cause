@@ -11,7 +11,7 @@ public interface RecipientService {
     public List<Recipient> getAllOwners() throws RecipientNotFoundException;
     public Recipient deleteOwner(String id) throws RecipientNotFoundException;
     public Recipient updateOwnerdetails(Recipient owner) throws RecipientNotFoundException;
-    public List<Recipient> getProductOwnerByName(String owner) throws RecipientNotFoundException;
+    public Recipient getProductOwnerByName(String owner) throws RecipientNotFoundException;
     public Recipient getProductOwnerById(String Owner) throws RecipientNotFoundException;
 
 }

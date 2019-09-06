@@ -86,8 +86,8 @@ public class RecipientController {
     public ResponseEntity<?> getOwnerByName(@PathVariable String id) {
         ResponseEntity responseEntity;
         try {
-            List<Recipient> recipient =service.getProductOwnerByName(id);
-            responseEntity = new ResponseEntity<List<Recipient>>(recipient, HttpStatus.OK);
+            Recipient recipient =service.getProductOwnerByName(id);
+            responseEntity = new ResponseEntity<Recipient>(recipient, HttpStatus.OK);
         } catch (Exception ex) {
             responseEntity = new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
             ex.printStackTrace();
