@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface RecipientRepository extends MongoRepository<Recipient,String> {
     /*Query to get product owner by name*/
-    @Query("{name:'?0'}")
-    List<Recipient> getProductOwnerByName(String name);
+    @Query("{email:'?0'}")
+    List<Recipient> getProductOwnerByEmail(String name);
 }
