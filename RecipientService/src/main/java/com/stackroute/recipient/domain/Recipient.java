@@ -16,7 +16,7 @@ public class Recipient {
     @Id
     private String id;
     private String name;
-    @Transient private String email;
+    private String email;
     @Transient private String password;
     private long phoneNumber;
     @Transient private String role;

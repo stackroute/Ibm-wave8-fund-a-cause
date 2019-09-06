@@ -64,7 +64,7 @@ public class RecipientServiceImpl implements RecipientService {
 
     @Override
     public Recipient updateOwnerdetails(Recipient owner) throws RecipientNotFoundException {
-        Optional<Recipient> ownerOptional = repository.findById(owner.getId());
+        Optional<Recipient> ownerOptional = repository.findById(owner.getEmail());
         if(ownerOptional.isEmpty()){
             throw new RecipientNotFoundException("Owner not found!");
         }
