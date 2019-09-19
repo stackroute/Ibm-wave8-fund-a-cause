@@ -39,6 +39,7 @@ public class CauseServiceTest {
         cause.setCauseDescription("aa");
         cause.setTimestamp("21-01-2019");
         cause.setLocation("Chennai");
+        cause.setAmount(12345678);
         list = new ArrayList<>();
         list.add(cause);
     }

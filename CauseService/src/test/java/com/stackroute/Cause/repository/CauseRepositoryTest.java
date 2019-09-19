@@ -31,6 +31,7 @@ public class CauseRepositoryTest {
         cause.setCauseDescription("aa");
         cause.setTimestamp("21-01-2019");
         cause.setLocation("Chennai");
+        cause.setAmount(12345678);
     }
     @After
     public void tearDown(){
@@ -47,7 +48,7 @@ public class CauseRepositoryTest {
     }
     @Test
     public void testSaveCauseFailure() {
-        Cause cause1 = new Cause("f123","relief","nan123","Floods","aa","21-01-2019" ,"Chennai");
+        Cause cause1 = new Cause("f123","relief","nan123","Floods","aa","21-01-2019" ,"Chennai",12345678);
 
         causeRepository.save(cause1);
         Cause fetchCause = causeRepository.findById(cause.getId()).get();
@@ -56,7 +57,7 @@ public class CauseRepositoryTest {
 
     @Test
     public void testGetAllCauses() {
-        Cause cause1 = new Cause("f123","relief","nan123","Floods","aa","21-01-2019" ,"Chennai");
+        Cause cause1 = new Cause("f123","relief","nan123","Floods","aa","21-01-2019" ,"Chennai",12345678);
         causeRepository.save(cause1);
 
 
@@ -67,7 +68,7 @@ public class CauseRepositoryTest {
     @Test
     public void testGetCauseByIdFailure(){
 
-        Cause cause1 = new Cause("f123","relief","nan123","Floods","aa","21-01-2019" ,"Chennai");
+        Cause cause1 = new Cause("f123","relief","nan123","Floods","aa","21-01-2019" ,"Chennai",12345678);
 
         causeRepository.save(cause1);
         List<Cause> list = causeRepository.findAll();
@@ -85,6 +86,7 @@ public class CauseRepositoryTest {
         cause.setCauseDescription("aa");
         cause.setTimestamp("21-01-2019");
         cause.setLocation("Chennai");
+        cause.setAmount(12345678);
         causeRepository.save(cause);
         String comment = (causeRepository.findById("f123").get()).getId();
         Assert.assertEquals("f123", comment);
@@ -98,6 +100,7 @@ public class CauseRepositoryTest {
         cause.setCauseDescription("aa");
         cause.setTimestamp("21-01-2019");
         cause.setLocation("Chennai");
+        cause.setAmount(12345678);
         causeRepository.save(cause);
         String comment = (causeRepository.findById("f123").get()).getId();
         Assert.assertNotEquals("n", comment);

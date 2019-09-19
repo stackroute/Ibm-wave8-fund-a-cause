@@ -19,4 +19,5 @@ public class Cause {
     private String causeDescription;
     private String timestamp;
     private String location;
+    private  long amount;
 }

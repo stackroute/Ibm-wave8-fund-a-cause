@@ -26,7 +26,9 @@ public class CauseServiceImpl implements CauseService {
         if (repository.existsById(cause.getId())) {
             throw new CauseAlreadyExistsException("Cause already exists!");
         }
-        return repository.save(cause);
+        Cause savedCause = repository.save(cause);
+        return savedCause;
+
     }
 
     @Override
@@ -53,13 +55,13 @@ public class CauseServiceImpl implements CauseService {
 
     @Override
     public Cause updateCausedetails(Cause cause) throws CauseNotFoundException {
-        Optional<Cause> causeOptional = repository.findById(cause.getId());
-        if(causeOptional.isEmpty()){
+        Optional<Cause> Optional = repository.findById(cause.getId());
+        if(Optional.isEmpty()){
             throw new CauseNotFoundException("Cause not found!");
         }
 
         repository.save(cause);
-        return causeOptional.get();    }
+        return Optional.get();    }
 
     @Override
     public List<Cause> getCauseByName(String name) throws CauseNotFoundException {
@@ -70,4 +72,23 @@ public class CauseServiceImpl implements CauseService {
         }
         return product;
     }
+
+    @Override
+    public List<Cause> getCauseByCauseType(String type) throws CauseNotFoundException {
+        List<Cause> product =repository.getCauseByCauseType(type);
+        if(product.isEmpty())
+        {
+            throw  new CauseNotFoundException("Cause Type not Found");
+        }
+        return product;
+    }
+
+    @Override
+    public List<Cause> getCauseByCauseReceiver(String receiver) throws CauseNotFoundException {
+        List<Cause> product =repository.getCauseByReceiverId(receiver);
+        if(product.isEmpty())
+        {
+            throw  new CauseNotFoundException("Cause Type not Found");
+        }
+        return product;    }
 }

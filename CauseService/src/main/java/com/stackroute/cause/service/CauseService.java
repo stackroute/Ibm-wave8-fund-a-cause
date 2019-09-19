@@ -12,4 +12,8 @@ public interface CauseService {
     public Cause deleteCause(String id) throws CauseNotFoundException;
     public Cause updateCausedetails(Cause cause) throws CauseNotFoundException;
     public List<Cause> getCauseByName(String name) throws CauseNotFoundException;
+
+    public List<Cause> getCauseByCauseType(String type) throws CauseNotFoundException;
+
+    public List<Cause> getCauseByCauseReceiver(String receiver) throws CauseNotFoundException;
 }

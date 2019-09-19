@@ -12,4 +12,10 @@ public interface CauseRepository extends MongoRepository<Cause,String> {
     /*Query to get Cause by name*/
     @Query("{name:'?0'}")
     List<Cause> getCauseByName(String name);
+
+    @Query("{causeType:'?0'}")
+    List<Cause> getCauseByCauseType(String causeType);
+
+    @Query("{receiverId:'?0'}")
+    List<Cause> getCauseByReceiverId(String receiver);
 }
