@@ -24,7 +24,7 @@ public class MailController {
 	@Autowired
 	private User user;
 
-	@KafkaListener(topics = "Kafka_Example", group = "group_id")
+	@KafkaListener(topics = "fa-Kafka_Example", group = "group_id")
 	public void consume(User user1)
 	{
 		this.user=user1;

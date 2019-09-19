@@ -22,6 +22,7 @@ public class User {
 
 	@JsonProperty("amount")
 	private Long amount;
+
 	private Map<String, Object> model;
 
 	public String getName() {

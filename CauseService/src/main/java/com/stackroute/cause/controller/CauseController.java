@@ -25,7 +25,7 @@ public class CauseController {
     @Autowired
     private KafkaTemplate<String,Cause> kafkaTemplate;
 
-    public static final String TOPIC="Cause";
+    public static final String TOPIC="fa-Cause";
 
     @Autowired
     public CauseController(CauseService service) {
@@ -117,6 +117,32 @@ public class CauseController {
         try {
             List<Cause> causeList=service.getCauseByName(search);
             responseEntity = new ResponseEntity<List<Cause>>(causeList, HttpStatus.OK);
+        } catch (Exception ex) {
+            responseEntity = new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
+            ex.printStackTrace();
+        }
+        return responseEntity;
+    }
+
+    @GetMapping("causeType/{type}")
+    public ResponseEntity<?> getCauseByType(@PathVariable String type) {
+        ResponseEntity responseEntity;
+        try {
+
+            responseEntity = new ResponseEntity<List<Cause>>(service.getCauseByCauseType(type), HttpStatus.OK);
+        } catch (Exception ex) {
+            responseEntity = new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
+            ex.printStackTrace();
+        }
+        return responseEntity;
+    }
+
+    @GetMapping("causeReceiver/{receiver}")
+    public ResponseEntity<?> getCauseByReceiver(@PathVariable String receiver) {
+        ResponseEntity responseEntity;
+        try {
+
+            responseEntity = new ResponseEntity<List<Cause>>(service.getCauseByCauseReceiver(receiver), HttpStatus.OK);
         } catch (Exception ex) {
             responseEntity = new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
             ex.printStackTrace();

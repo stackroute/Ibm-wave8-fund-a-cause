@@ -18,7 +18,7 @@ public class KafkaConsumer {
 
     @Autowired
     private PasswordEncoder bcryptEncoder;
-    @KafkaListener(topics = "registration", groupId="group_id")
+    @KafkaListener(topics = "fa-registration", groupId="group_id")
    public void consumeJson(Users user) throws IOException {
 //        User user = new ObjectMapper().readValue(message, Users.class);
         System.out.println("Consumed JSON Message: " + user);

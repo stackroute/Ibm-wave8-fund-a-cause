@@ -1,7 +1,7 @@
 com/stackroute/donorregistration/domain/Donor.class
 com/stackroute/donorregistration/repository/DonorRepository.class
-com/stackroute/donorregistration/exceptions/DonorAlreadyExistsException.class
 com/stackroute/donorregistration/DonorRegistrationApplication.class
+com/stackroute/donorregistration/exceptions/DonorAlreadyExistsException.class
 com/stackroute/donorregistration/config/KafkaConfiguration.class
 com/stackroute/donorregistration/service/DonorService.class
 com/stackroute/donorregistration/service/DonorServiceImpl.class

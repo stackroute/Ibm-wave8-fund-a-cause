@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Cause {
+public class    Cause {
     @Id
     private String id;
     private String name;

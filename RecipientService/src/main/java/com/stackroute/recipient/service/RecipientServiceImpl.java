@@ -17,7 +17,7 @@ public class RecipientServiceImpl implements RecipientService {
     @Autowired
     private KafkaTemplate<String, Recipient> kafkaTemplate;
 
-    public static final String TOPIC="registration";
+    public static final String TOPIC="fa-registration";
 
 
     @Autowired

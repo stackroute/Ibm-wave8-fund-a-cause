@@ -83,10 +83,11 @@ public class DonorController  {
     }
 
     /* searches for a donor by name */
-    @GetMapping("/donors/{name}")
-    public ResponseEntity<List<Donor>> getByName(@PathVariable String name) throws DonorNotFoundException {
-        List<Donor> donor = donorService.getByName(name);
-        return new ResponseEntity<List<Donor>>(donor, HttpStatus.OK);
+    @GetMapping("donors/{email}")
+    public ResponseEntity<Donor> getByName(@PathVariable String email) throws DonorNotFoundException {
+        Donor donor = donorService.getByName(email);
+        System.out.println(donor);
+        return new ResponseEntity<Donor>(donor, HttpStatus.OK);
     }
 
     /* searches for a donor by id */

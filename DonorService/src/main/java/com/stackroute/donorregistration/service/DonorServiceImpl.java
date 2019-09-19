@@ -17,7 +17,7 @@ public class DonorServiceImpl implements DonorService {
 
     private DonorRepository donorRepository;
 
-    public static final String TOPIC = "registration";
+    public static final String TOPIC = "fa-registration";
 
     @Autowired
     private KafkaTemplate<String, Donor> kafkaTemplate;
@@ -79,11 +79,12 @@ public class DonorServiceImpl implements DonorService {
 
     /* finds a donor by name */
     @Override
-    public List<Donor> getByName(String name) throws DonorNotFoundException{
-        List<Donor> donorId = donorRepository.findByName(name);
-        if(donorId.isEmpty()){
-            throw new DonorNotFoundException("Donor(s) not found!");
-        }
+    public Donor getByName(String email) throws DonorNotFoundException{
+        Donor donorId = donorRepository.findByEmail(email);
+        System.out.println(donorId);
+//        if(donorId.isEmpty()){
+//            throw new DonorNotFoundException("Donor(s) not found!");
+//        }
         return donorId;
     }
 

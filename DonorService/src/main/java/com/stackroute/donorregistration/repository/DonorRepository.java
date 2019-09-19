@@ -11,7 +11,8 @@ import java.util.List;
 public interface DonorRepository extends MongoRepository<Donor, String> {
 
     /* query to get donor by name */
-    @Query("{username:'?0'}")
-    List<Donor> findByName(String name);
+    @Query("{email:'?0'}")
+    Donor findByEmail(String email);
+
 
 }

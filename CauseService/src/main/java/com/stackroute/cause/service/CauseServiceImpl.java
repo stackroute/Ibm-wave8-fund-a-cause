@@ -70,4 +70,23 @@ public class CauseServiceImpl implements CauseService {
         }
         return product;
     }
+
+    @Override
+    public List<Cause> getCauseByCauseType(String type) throws CauseNotFoundException {
+        List<Cause> product =repository.getCauseByCauseType(type);
+        if(product.isEmpty())
+        {
+            throw  new CauseNotFoundException("Cause Type not Found");
+        }
+        return product;
+    }
+
+    @Override
+    public List<Cause> getCauseByCauseReceiver(String receiver) throws CauseNotFoundException {
+        List<Cause> product =repository.getCauseByReceiverId(receiver);
+        if(product.isEmpty())
+        {
+            throw  new CauseNotFoundException("Cause Receiver not Found");
+        }
+        return product;    }
 }

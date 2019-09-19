@@ -16,7 +16,7 @@ public interface DonorService {
 
     Donor updateById(Donor donor) throws DonorNotFoundException;
 
-    List<Donor> getByName(String name) throws DonorNotFoundException;
+    Donor getByName(String email) throws DonorNotFoundException;
 
     Donor getById(String id) throws DonorNotFoundException;
 

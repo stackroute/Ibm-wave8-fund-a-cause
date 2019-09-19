@@ -15,7 +15,7 @@ public class DonationServiceImpl implements DonationService {
 
     private DonationRepository donationRepository;
 
-    public static final String TOPIC = "registration";
+    public static final String TOPIC = "fa-registration_donation";
 
     @Autowired
     private KafkaTemplate<String, Donation> kafkaTemplate;
@@ -29,6 +29,7 @@ public class DonationServiceImpl implements DonationService {
     @Override
     public Donation saveNewDonation(Donation donation) {
         Donation savedDonor = donationRepository.save(donation);
+        kafkaTemplate.send(TOPIC,donation);
         return savedDonor;
     }
 

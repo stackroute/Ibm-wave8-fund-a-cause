@@ -12,7 +12,7 @@ public class Donor {
     @Id
     private String id;
     private String name;
-    @Transient private String email;
+    private String email;
     @Transient private String password;
     @Transient private String role;
     private long phoneNumber;
